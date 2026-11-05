@@ -1,0 +1,147 @@
+{
+  "skill": "boletos-executive-bi-anomaly-narrator",
+  "version": "1.0.0",
+  "mcp_server": "boletos-monitoreo",
+  "access_policy": {
+    "allowed_email_domains": [
+      "@boletos.la",
+      "@wit.la"
+    ],
+    "read_only": true,
+    "forbidden_operators": [
+      "NSA",
+      "Nuestra Señora de la Asunción",
+      "Nuestra Senora de la Asuncion"
+    ],
+    "allowed_paraguay_operators": [
+      "LSN",
+      "LSP",
+      "LSA"
+    ]
+  },
+  "currencies": {
+    "PYG": {
+      "symbol": "Gs.",
+      "decimals": 0,
+      "thousands_separator": ".",
+      "bancard_wire_decimals": 2
+    },
+    "CLP": {
+      "symbol": "$",
+      "suffix": "CLP",
+      "decimals": 0,
+      "thousands_separator": "."
+    }
+  },
+  "anomaly_thresholds": {
+    "z_score_warning": 2.0,
+    "z_score_critical": 3.0,
+    "iqr_multiplier": 1.5,
+    "min_sample_size": 5,
+    "bancard_approval_rate_healthy_min_pct": 85.0,
+    "bancard_approval_rate_critical_max_pct": 70.0,
+    "cart_abandonment_warning_pct": 68.0,
+    "cart_abandonment_critical_pct": 78.0,
+    "totem_ram_alert_pct": 85.0,
+    "totem_disk_alert_pct": 90.0,
+    "totem_cpu_load_alert": 80.0
+  },
+  "voice_briefing": {
+    "mcp_server": "gemini-tts",
+    "tool": "speak",
+    "voice": "voice_executive_es",
+    "fallback_voice": "es-CL-LorenzoNeural",
+    "speed": 1.15,
+    "lang": "es",
+    "wait": false,
+    "max_sentences": 2
+  },
+  "bi_platforms_catalog": [
+    {
+      "id": "boletos_paraguay",
+      "tool": "get_boletos_paraguay_sales_dashboard",
+      "country": "Paraguay",
+      "currency": "PYG",
+      "channels": ["web", "totem", "manual"]
+    },
+    {
+      "id": "custodia_asuncion",
+      "tool": "get_custodia_asuncion_dashboard",
+      "country": "Paraguay",
+      "currency": "PYG",
+      "lockers": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": "pullman_convenios",
+      "tool": "get_pullman_convenios_dashboard",
+      "country": "Chile",
+      "currency": "CLP",
+      "rds_view": "convenios.vista_reporte_eventos"
+    },
+    {
+      "id": "pullman_cuentas_corrientes",
+      "tool": "get_pullman_cuentas_corrientes_dashboard",
+      "country": "Chile",
+      "currency": "CLP",
+      "rds_db": "multiempresa_db"
+    },
+    {
+      "id": "centinela",
+      "tool": "get_centinela_sales_dashboard",
+      "country": "Chile",
+      "currency": "CLP",
+      "sla_target_effectiveness_pct": 97.5
+    },
+    {
+      "id": "terminal_sur",
+      "tool": "get_terminal_sur_management_dashboard",
+      "country": "Chile",
+      "currency": "CLP",
+      "subsystems": ["cajas", "totems", "custodia"]
+    },
+    {
+      "id": "totems_pullman_costa",
+      "tool": "get_totems_pullman_costa_dashboard",
+      "country": "Chile",
+      "currency": "CLP",
+      "fees": {
+        "transbank_pct": 1.0,
+        "wit_fee_pct": 2.5
+      }
+    }
+  ],
+  "mcp_tools_31": [
+    "get_executive_financial_kpis",
+    "get_top_commercial_routes",
+    "search_passenger_tickets",
+    "get_bancard_gateway_health",
+    "get_whatsapp_support_telemetry",
+    "get_cart_abandonment_metrics",
+    "get_meta_campaign_telemetry",
+    "get_totems_advertising_summary",
+    "get_totems_fleet_status",
+    "get_pullman_convenios_dashboard",
+    "get_pullman_commercial_sales",
+    "get_centinela_sales_dashboard",
+    "get_custodia_asuncion_dashboard",
+    "get_boletos_paraguay_sales_dashboard",
+    "get_pullman_cuentas_corrientes_dashboard",
+    "get_terminal_sur_management_dashboard",
+    "get_totems_pullman_costa_dashboard",
+    "get_executive_bi_catalog",
+    "install_graphs",
+    "get_terminal_sur_services_summary",
+    "get_gps_telemetry_services",
+    "get_aws_infrastructure_catalog",
+    "get_fleet_hardware_alerts",
+    "get_fleet_error_digest",
+    "get_monitoring_status",
+    "list_services",
+    "get_service_detail",
+    "get_service_logs",
+    "get_database_traceability",
+    "get_fleet_summary",
+    "get_full_report",
+    "trigger_fleet_audit"
+  ]
+}

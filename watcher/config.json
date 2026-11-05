@@ -1,0 +1,65 @@
+{
+  "templates_base": "~/.gemini/config/plugins/agy-cfo-tools",
+  "log_dir": "~/.gemini/config/logs",
+  "log_file_name": "cfo_auto_agents_watcher.log",
+  "poll_interval_seconds": 5,
+  "workspace_roots": {
+    "~/FinanceProjects": "business_finance",
+    "~/CFOProjects": "business_finance",
+    "~/AccountingProjects": "business_finance",
+    "~/DataGripProjects": "databases",
+    "~/BIProjects": "business_finance"
+  },
+  "file_marker_categories": {
+    "business_finance": [
+      "financial_model.xlsx",
+      "budget.xlsx",
+      "cashflow.xlsx",
+      "sifen.json",
+      "billing.config.json"
+    ],
+    "databases": [
+      "datagrip.xml",
+      "schema.prisma",
+      "drizzle.config.ts",
+      "flyway.conf"
+    ]
+  },
+  "keyword_category_fallbacks": {
+    "business_finance": [
+      "cfo",
+      "finance",
+      "finanzas",
+      "accounting",
+      "contabilidad",
+      "billing",
+      "facturacion",
+      "sifen",
+      "dte",
+      "erp",
+      "odoo",
+      "budget",
+      "cashflow",
+      "kpi",
+      "bi"
+    ],
+    "databases": [
+      "sql",
+      "bigquery",
+      "postgres",
+      "mysql"
+    ]
+  },
+  "default_category": "business_finance",
+  "skip_dirs": [
+    ".agents",
+    "node_modules",
+    ".git",
+    "out",
+    "build",
+    "dist",
+    "__pycache__",
+    ".venv",
+    "venv"
+  ]
+}

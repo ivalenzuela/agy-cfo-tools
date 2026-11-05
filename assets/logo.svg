@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" fill="none">
+  <defs>
+    <linearGradient id="cfoBg" x1="24" y1="24" x2="232" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="cfoGold" x1="48" y1="48" x2="208" y2="208" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="50%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="208" height="208" rx="44" fill="url(#cfoBg)" stroke="url(#cfoGold)" stroke-width="6"/>
+  <rect x="64" y="140" width="24" height="52" rx="6" fill="#38BDF8"/>
+  <rect x="100" y="112" width="24" height="80" rx="6" fill="#10B981"/>
+  <rect x="136" y="84" width="24" height="108" rx="6" fill="#FBBF24"/>
+  <rect x="172" y="58" width="24" height="134" rx="6" fill="#F59E0B"/>
+  <path d="M68 124 L112 96 L148 72 L188 48" stroke="#F8FAFC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="188" cy="48" r="8" fill="#10B981" stroke="#F8FAFC" stroke-width="3"/>
+</svg>

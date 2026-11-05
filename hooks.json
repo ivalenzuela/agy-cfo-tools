@@ -1,0 +1,72 @@
+{
+  "session-context-banner": {
+    "enabled": false,
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "python -c \"import sys, json; sys.stdin.read(); print(json.dumps({'injectSteps': [{'systemMessage': {'systemMessage': 'AGY CFO Tools plugin active (87 Finance & CFO skills + Skill Finder ready).'}}]}))\"",
+        "timeout": 10
+      }
+    ]
+  },
+  "destructive-command-guard": {
+    "enabled": false,
+    "PreToolUse": [
+      {
+        "matcher": "run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import sys, json; raw = sys.stdin.read(); data = json.loads(raw) if raw.strip() else {}; cmd = data.get('toolCall', {}).get('args', {}).get('CommandLine', ''); bad = any(k in cmd.upper() for k in ['RM -RF /', 'FORMAT C:']); print(json.dumps({'decision': 'deny' if bad else 'allow', 'reason': 'Blocked destructive command by AGY CFO Tools PreToolUse hook.' if bad else 'Allowed'}))\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "post-tool-diagnostics": {
+    "enabled": false,
+    "PostToolUse": [
+      {
+        "matcher": "edit_file|write_file|replace_file_content|write_to_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import sys, json; sys.stdin.read(); print(json.dumps({}))\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "pre-invocation-prompt-guard": {
+    "enabled": false,
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "python -c \"import sys, json; raw = sys.stdin.read(); data = json.loads(raw) if raw.strip() else {}; last_in = data.get('lastUserInput', ''); steps = [{'ephemeralMessage': 'Verify financial models, formulas, and tax calculations with deterministic checks before completion.'}] if last_in else []; print(json.dumps({'injectSteps': steps}))\"",
+        "timeout": 10
+      }
+    ]
+  },
+  "post-invocation-audit": {
+    "enabled": false,
+    "PostInvocation": [
+      {
+        "type": "command",
+        "command": "python -c \"import sys, json; sys.stdin.read(); print(json.dumps({'injectSteps': [], 'terminationBehavior': ''}))\"",
+        "timeout": 10
+      }
+    ]
+  },
+  "stop-completion-guard": {
+    "enabled": false,
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python -c \"import sys, json; raw = sys.stdin.read(); data = json.loads(raw) if raw.strip() else {}; idle = data.get('fullyIdle', True); reason = data.get('terminationReason', 'NO_TOOL_CALL'); print(json.dumps({'decision': 'allow', 'reason': f'Session stop allowed (fullyIdle={idle}, reason={reason}).'}))\"",
+        "timeout": 10
+      }
+    ]
+  }
+}

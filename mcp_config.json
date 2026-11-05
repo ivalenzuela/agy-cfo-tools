@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "agy-cfo-tools-skill-catalog": {
+      "command": "python",
+      "args": [
+        "-B",
+        "scripts/find_template_skill.py",
+        "--json"
+      ],
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "MCP_READONLY": "true"
+      },
+      "disabled": true
+    }
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "skill": "latam-fintech-payments-invoicing",
+  "version": "3.0.0",
+  "supported_gateways": [
+    "bancard_vpos_v1_23",
+    "bancard_ventas_qr",
+    "bancard_caja_pos_android_v1_7",
+    "infonet_cobranzas",
+    "pagopar_v2_v3_upay",
+    "dinelco_bepsa",
+    "adamspay_v1",
+    "tigo_money_mfs_v2",
+    "bcp_sipap_spi_py_qr",
+    "sifen_dnit_v150",
+    "transbank_webpay_plus",
+    "transbank_pos_integrado"
+  ],
+  "bancard_endpoints": {
+    "staging": "https://vpos.infonet.com.py:8888",
+    "production": "https://vpos.infonet.com.py",
+    "sdk_js_path": "/checkout/javascript/dist/bancard-checkout-4.0.0.js",
+    "sdk_js_legacy_path": "/checkout/javascript/dist/bancard-checkout-2.0.0.js",
+    "paths": {
+      "single_buy": "/vpos/api/0.3/single_buy",
+      "checkout_generate_qr": "/checkout/generate_qr",
+      "cards_new": "/vpos/api/0.3/cards/new",
+      "users_cards_base": "/vpos/api/0.3/users",
+      "charge": "/vpos/api/0.3/charge",
+      "confirmations": "/vpos/api/0.3/single_buy/confirmations",
+      "rollback": "/vpos/api/0.3/single_buy/rollback",
+      "preauthorizations_confirm": "/vpos/api/0.3/preauthorizations/confirm",
+      "billing_client_info": "/vpos/api/0.3/billing/client_info",
+      "billing_cancel": "/vpos/api/0.3/billing/cancel"
+    },
+    "ventas_qr_commerce": {
+      "auth_scheme": "Basic base64('apps/' + public_key + ':' + private_key)",
+      "generate_qr_express": "/commerces/{commerce_code}/branches/{branch_code}/selling/generate-qr-express",
+      "revert_qr_payment": "/commerces/{commerce_code}/branches/{branch_code}/selling/payments/revert/{hook_alias}"
+    }
+  },
+  "bancard_vpos": {
+    "spec_version": "1.23.1",
+    "currency_default": "PYG",
+    "amount_format_regex": "^\\d+\\.\\d{2}$",
+    "rollback_amount_literal": "0.00",
+    "rollback_omits_currency": true,
+    "already_confirmed_error_key": "TransactionAlreadyConfirmed",
+    "max_cards_per_user": 5,
+    "alias_token_ttl_seconds": 900,
+    "mastercard_mac_block_declines_24h": 7,
+    "mastercard_mac_block_declines_30d": 35,
+    "mastercard_mac_block_duration_days": 30,
+    "bancard_gateway_webhook_timeout_ms": 30000,
+    "merchant_webhook_sla_ms": 4500,
+    "seat_lock_ttl_seconds": 600,
+    "polling_schedule_seconds": [15, 45, 120, 300, 540],
+    "approved_response": "S",
+    "approved_response_code": "00",
+    "billing_cancel_max_hours": 24,
+    "preauth_single_confirm_attempt": true,
+    "preauth_expiry_days": 30,
+    "preauth_min_usd_equivalent": 1.0,
+    "preauth_credit_max_confirm_ratio": 1.2,
+    "preauth_debit_max_confirm_ratio": 1.0,
+    "forbid_raw_auth_or_response_code_on_error_ui": true,
+    "forbidden_public_ui_fields": [
+      "authorization_number",
+      "response_code",
+      "extended_response_description",
+      "security_information"
+    ]
+  },
+  "bancard_caja_pos_android": {
+    "icp_spec_version": "1.7",
+    "http_method": "POST",
+    "default_port": 3000,
+    "nro_boleta_digits": 12,
+    "factura_nro_min": 0,
+    "factura_nro_max": 999999999999999,
+    "monto_max": 999999999,
+    "bin_max_chars": 10,
+    "nsu_chars": 6,
+    "consulta_anulacion_max_registros": 50,
+    "promotions_max_chars": 9000,
+    "paths": {
+      "eco": "/pos/eco",
+      "venta_ux": "/pos/venta-ux",
+      "venta_debito": "/pos/venta/debito",
+      "venta_credito": "/pos/venta/credito",
+      "descuento": "/pos/descuento",
+      "venta_qr": "/pos/venta-qr",
+      "venta_qr_pix": "/pos/venta-qr-pix",
+      "venta_canje": "/pos/venta-canje",
+      "venta_billetera": "/pos/venta-billetera",
+      "consulta_anulacion": "/pos/consulta/anulacion",
+      "anulacion": "/pos/anulacion"
+    },
+    "card_issuer_ids": [
+      "CB", "CC", "CL", "CP", "DC", "ID", "MC", "MD",
+      "PC", "UD", "VC", "VD", "TD", "TC", "CD", "AC", "BC"
+    ],
+    "wallets": {
+      "ZIM": "ZM",
+      "WPJ": "PJ",
+      "VBV": "VB",
+      "BPI": "PI",
+      "BBF": "BF"
+    },
+    "wallet_names": {
+      "ZIM": "ZIMPLE",
+      "WPJ": "Paraguayo Japonesa",
+      "VBV": "VISION",
+      "BPI": "Personal-Itau",
+      "BBF": "Billetera Viru"
+    },
+    "special_issuer_ids": {
+      "pix": "PX",
+      "loyalty_canje": "LT"
+    }
+  },
+  "infonet_cobranzas": {
+    "operations": ["consulta", "pago", "reversa"],
+    "currency": "PYG",
+    "idempotency_key": "tid"
+  },
+  "pagopar": {
+    "base_url": "https://api.pagopar.com/api",
+    "paths": {
+      "iniciar_transaccion": "/comercios/2.0/iniciar-transaccion",
+      "formas_pago": "/forma-pago/1.1/traer",
+      "traer_pedido": "/pedidos/1.1/traer",
+      "reversar_pedido": "/pedidos/1.1/reversar",
+      "recurring_add_customer": "/pago-recurrente/3.0/agregar-cliente",
+      "recurring_add_card": "/pago-recurrente/3.0/agregar-tarjeta",
+      "recurring_list_cards": "/pago-recurrente/3.0/listar-tarjeta",
+      "recurring_confirm_card": "/pago-recurrente/3.0/confirmar-tarjeta",
+      "recurring_delete_card": "/pago-recurrente/3.0/eliminar-tarjeta",
+      "recurring_pay": "/pago-recurrente/3.0/pagar"
+    },
+    "hash_algorithm": "sha1",
+    "token_literals": {
+      "formas_pago": "FORMA-PAGO",
+      "consulta": "CONSULTA",
+      "reversar": "PEDIDO-REVERSAR",
+      "pago_recurrente": "PAGO-RECURRENTE"
+    },
+    "recurring_providers": ["Bancard", "uPay"],
+    "payment_methods": {
+      "tarjetas_bancard": 1,
+      "aqui_pago": 2,
+      "pago_express": 3,
+      "practipago": 4,
+      "tigo_money": 10,
+      "billetera_personal": 12,
+      "qr_interoperable_pix": 24,
+      "upay": 26
+    }
+  },
+  "adamspay": {
+    "production_base_url": "https://api.adamspay.com/api/v1",
+    "staging_base_url": "https://staging.adamspay.com/api/v1",
+    "debts_path": "/debts",
+    "auth_header": "apikey",
+    "webhook_signature_header": "x-adams-notify-hash",
+    "webhook_formula": "md5('adams' + rawBody + secret)"
+  },
+  "tigo_money_mfs": {
+    "oauth_path": "/v1/oauth/generate/accesstoken",
+    "payment_authorization_path": "/v2/tigo/mfs/payments/authorizations",
+    "country_code": "PRY",
+    "currency": "PYG"
+  },
+  "bcp_sipap_py_qr": {
+    "law_reference": "Ley 7503/2025 Sistema Nacional de Pagos",
+    "spi_instant_max_amount_pyg": 10000000,
+    "iso4217_pyg_numeric": "600",
+    "mcc_passenger_bus_lines": "4131",
+    "crc16_algorithm": "CRC-16/CCITT-FALSE",
+    "crc16_polynomial_hex": "0x1021",
+    "crc16_init_hex": "0xFFFF"
+  },
+  "sifen_cdc_length": 44,
+  "sifen_dnit": {
+    "schema_version": "150",
+    "namespace": "http://ekuatia.set.gov.py/sifen/xsd",
+    "cdc_length": 44,
+    "cdc_base_length": 43,
+    "mod11_min_weight": 2,
+    "mod11_max_weight": 11,
+    "transport_iva_law": "Ley 6380/2019 Art. 100 Num. 3 Inc. h",
+    "transport_exempt_max_km": 100,
+    "transport_long_distance_rate": 10,
+    "endpoints": {
+      "test": {
+        "recibe_de": "https://sifen-test.set.gov.py/de/ws/sync/recibe.wsdl",
+        "recibe_lote": "https://sifen-test.set.gov.py/de/ws/async/recibe-lote.wsdl",
+        "consulta_lote": "https://sifen-test.set.gov.py/de/ws/consultas/consulta-lote.wsdl",
+        "consulta_de": "https://sifen-test.set.gov.py/de/ws/consultas/consulta.wsdl",
+        "consulta_ruc": "https://sifen-test.set.gov.py/de/ws/consultas/consulta-ruc.wsdl",
+        "evento": "https://sifen-test.set.gov.py/de/ws/eventos/evento.wsdl",
+        "qr_base_url": "https://ekuatia.set.gov.py/consultas-test/qr?"
+      },
+      "production": {
+        "recibe_de": "https://sifen.set.gov.py/de/ws/sync/recibe.wsdl",
+        "recibe_lote": "https://sifen.set.gov.py/de/ws/async/recibe-lote.wsdl",
+        "consulta_lote": "https://sifen.set.gov.py/de/ws/consultas/consulta-lote.wsdl",
+        "consulta_de": "https://sifen.set.gov.py/de/ws/consultas/consulta.wsdl",
+        "consulta_ruc": "https://sifen.set.gov.py/de/ws/consultas/consulta-ruc.wsdl",
+        "evento": "https://sifen.set.gov.py/de/ws/eventos/evento.wsdl",
+        "qr_base_url": "https://ekuatia.set.gov.py/consultas/qr?"
+      }
+    },
+    "xml_dsig": {
+      "canonicalization_algorithm": "http://www.w3.org/2001/10/xml-exc-c14n#",
+      "signature_algorithm": "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256",
+      "digest_algorithm": "http://www.w3.org/2001/04/xmlenc#sha256"
+    },
+    "iva_divisors_pyg": {
+      "rate_10_divisor": 11,
+      "rate_5_divisor": 21
+    }
+  },
+  "transbank": {
+    "webpay_plus_v1_2": {
+      "integration_base_url": "https://webpay3gint.transbank.cl",
+      "production_base_url": "https://webpay3g.transbank.cl",
+      "transactions_path": "/rswebpaytransaction/api/webpay/v1.2/transactions",
+      "integration_commerce_code": "597055555532",
+      "buy_order_max_length": 26,
+      "currency": "CLP"
+    },
+    "pos_integrado": {
+      "baud_rate": 115200,
+      "data_bits": 8,
+      "parity": "none",
+      "stop_bits": 1,
+      "stx_byte": 2,
+      "etx_byte": 3,
+      "ack_byte": 6,
+      "nak_byte": 21,
+      "commands": {
+        "sale_request": "0200",
+        "sale_response": "0210",
+        "last_sale": "0250",
+        "close_batch": "0500",
+        "poll_status": "0100",
+        "load_keys": "0800"
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "skill_name": "autonomous-whatsapp-commerce-closer",
+  "mcp_server": "boletos-la-ventas-mcp",
+  "currency": {
+    "code": "PYG",
+    "symbol": "Gs.",
+    "decimals": 0,
+    "bancard_vpos_wire_decimals": 2,
+    "thousands_separator": "."
+  },
+  "operator_policy": {
+    "strict_integrated_allowlist_only": true,
+    "strict_exclude_nsa": true,
+    "integrated_operator_codes": {
+      "LSN": "La Santaniana",
+      "LSP": "La Sampedrana",
+      "LSA": "La Santaniana Internacional"
+    },
+    "allowed_operators": [
+      "La Santaniana",
+      "La Sampedrana",
+      "La Santaniana Internacional"
+    ],
+    "forbidden_operators": [
+      "NSA",
+      "Nuestra Señora de la Asunción",
+      "Nuestra Senora de la Asuncion",
+      "NASA",
+      "NASA Golondrina",
+      "Sol del Paraguay",
+      "Expreso Paraguay",
+      "RYSA",
+      "Golondrina",
+      "Canindeyú",
+      "Canindeyu",
+      "Stel Turismo",
+      "Guaireña",
+      "Guairena",
+      "Crucero del Norte",
+      "Yacyretá",
+      "Yacyreta",
+      "Cometa del Amambay",
+      "La Ovetense",
+      "Ciudad de Concepción",
+      "Crucero del Este",
+      "Beato Roque González"
+    ]
+  },
+  "station_aliases": {
+    "asuncion": "184",
+    "asu": "184",
+    "cde": "218",
+    "ciudad del este": "218",
+    "oviedo": "173",
+    "coronel oviedo": "173",
+    "encarnacion": "200",
+    "enc": "200"
+  },
+  "seat_hold_policy": {
+    "ttl_seconds": 600,
+    "auto_release_on_change": true,
+    "auto_release_on_cancel": true,
+    "max_seats_per_booking": 6,
+    "delta_blocked_seat_states": ["B", "R", "T"]
+  },
+  "payment_and_2pc_policy": {
+    "gateway": "Bancard vPOS",
+    "poll_interval_seconds": 5,
+    "max_poll_attempts": 120,
+    "auto_rollback_on_gds_failure": true,
+    "release_seats_on_rollback": true,
+    "persist_mi_boleto_ticket_events": true
+  },
+  "mcp_tools_contract": [
+    "get_allowed_operators",
+    "resolve_station",
+    "search_bus_trips",
+    "get_seat_map",
+    "hold_seats",
+    "release_seats",
+    "create_payment_link_and_notify_whatsapp",
+    "check_payment_status",
+    "emit_tickets",
+    "send_ticket_to_whatsapp",
+    "rollback_payment"
+  ]
+}

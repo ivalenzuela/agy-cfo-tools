@@ -1,0 +1,13 @@
+{
+  "name": "agy-cfo-tools",
+  "displayName": "AGY CFO & Finance Suite",
+  "version": "1.0.0",
+  "description": "Suite integral de herramientas financieras, contables, modelamiento Excel/Sheets, pasarelas FinTech LATAM, facturacion electronica SIFEN/DTE, ERP Odoo, BI ejecutivo y Skill Finder para Antigravity.",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Busca con skill-finder las mejores skills para modelamiento financiero en Excel, facturacion SIFEN y auditoria BI",
+    "Construye un modelo financiero de flujo de caja a 36 meses en .xlsx con formulas auditables y KPIs de Unit Economics",
+    "Audita la conciliacion de pasarelas de pago (Bancard vPOS / Transbank / Stripe) y cumplimiento tributario SIFEN v150 / DTE"
+  ],
+  "disabled": false
+}

@@ -1,0 +1,23 @@
+{
+  "display_name": "AGY CFO & Finance Cockpit",
+  "description": "Auxiliary Pane HUD for CFO & Finance Operations: Live Skill-Finder Explorer (87 Finance/ERP/Tax/BI Skills), .agents/skills.json Builder, and Unit Economics / DCF / Tax Mod-11 Calculators.",
+  "command": "python",
+  "args": [
+    "-B",
+    "cfo_cockpit_server.py"
+  ],
+  "port": 8496,
+  "restart_policy": "always",
+  "has_web_ui": true,
+  "ui_config": {
+    "display_name": "AGY CFO & Finance Cockpit",
+    "views": [
+      {
+        "id": "cfo-cockpit",
+        "title": "CFO Tools Cockpit",
+        "path": "/",
+        "entrypoint": "SIDECAR_UI_ENTRYPOINT_AUX_PANE"
+      }
+    ]
+  }
+}

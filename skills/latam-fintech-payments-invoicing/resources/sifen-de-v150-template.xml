@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rDE xmlns="http://ekuatia.set.gov.py/sifen/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ekuatia.set.gov.py/sifen/xsd siRecepDE_v150.xsd">
+  <dVerFor>150</dVerFor>
+  <DE Id="{{CDC_44}}">
+    <dDVId>{{DV_ID}}</dDVId>
+    <dFecFirma>{{FECHA_FIRMA_ISO}}</dFecFirma>
+    <dSisFact>1</dSisFact>
+    <gOpeDE>
+      <iTipEmi>{{TIPO_EMISION}}</iTipEmi>
+      <dDesTipEmi>{{DESC_TIPO_EMISION}}</dDesTipEmi>
+      <dCodSeg>{{CODIGO_SEGURIDAD_9}}</dCodSeg>
+    </gOpeDE>
+    <gTimb>
+      <iTiDE>{{TIPO_DE}}</iTiDE>
+      <dDesTiDE>{{DESC_TIPO_DE}}</dDesTiDE>
+      <dNumTim>{{NUMERO_TIMBRADO_8}}</dNumTim>
+      <dEst>{{ESTABLECIMIENTO_3}}</dEst>
+      <dPunExp>{{PUNTO_EXPEDICION_3}}</dPunExp>
+      <dNumDoc>{{NUMERO_DOCUMENTO_7}}</dNumDoc>
+      <dFeIniT>{{FECHA_INICIO_TIMBRADO}}</dFeIniT>
+    </gTimb>
+    <gDatGralOpe>
+      <dFeEmiDE>{{FECHA_EMISION_ISO}}</dFeEmiDE>
+      <gOpeCom>
+        <iTipTra>2</iTipTra>
+        <dDesTipTra>Prestación de servicios</dDesTipTra>
+        <iTImp>1</iTImp>
+        <dDesTImp>IVA</dDesTImp>
+        <cMoneOpe>PYG</cMoneOpe>
+        <dDesMoneOpe>Guarani</dDesMoneOpe>
+      </gOpeCom>
+      <gEmis>
+        <dRucEm>{{RUC_EMISOR}}</dRucEm>
+        <dDVEmi>{{DV_EMISOR}}</dDVEmi>
+        <iTipCont>{{TIPO_CONTRIBUYENTE}}</iTipCont>
+        <dNomEmi>{{NOMBRE_EMISOR}}</dNomEmi>
+        <dDirEmi>{{DIRECCION_EMISOR}}</dDirEmi>
+        <dNumCas>0</dNumCas>
+        <cDepEmi>1</cDepEmi>
+        <dDesDepEmi>CAPITAL</dDesDepEmi>
+        <cCiuEmi>1</cCiuEmi>
+        <dDesCiuEmi>ASUNCION (DISTRITO)</dDesCiuEmi>
+        <dTelEmi>{{TELEFONO_EMISOR}}</dTelEmi>
+        <dEmailE>{{EMAIL_EMISOR}}</dEmailE>
+        <gActEco>
+          <cActEco>{{CODIGO_ACTIVIDAD}}</cActEco>
+          <dDesActEco>{{DESC_ACTIVIDAD}}</dDesActEco>
+        </gActEco>
+      </gEmis>
+      <gDatRec>
+        <iNatRec>{{NATURALEZA_RECEPTOR}}</iNatRec>
+        <iTiOpe>{{TIPO_OPERACION_RECEPTOR}}</iTiOpe>
+        <cPaisRec>PRY</cPaisRec>
+        <dDesPaisRe>Paraguay</dDesPaisRe>
+        <iTiContRec>{{TIPO_CONT_RECEPTOR}}</iTiContRec>
+        <dRucRec>{{RUC_RECEPTOR}}</dRucRec>
+        <dDVRec>{{DV_RECEPTOR}}</dDVRec>
+        <dNomRec>{{NOMBRE_RECEPTOR}}</dNomRec>
+      </gDatRec>
+    </gDatGralOpe>
+    <gDtipDE>
+      <gCamFE>
+        <iIndPres>2</iIndPres>
+        <dDesIndPres>Operación electrónica</dDesIndPres>
+      </gCamFE>
+      <gCamCond>
+        <iCondOpe>1</iCondOpe>
+        <dDCondOpe>Contado</dDCondOpe>
+        <gPaConEIni>
+          <iTiPago>{{TIPO_PAGO_SIFEN}}</iTiPago>
+          <dDesTiPag>{{DESC_TIPO_PAGO_SIFEN}}</dDesTiPag>
+          <dMonTiPag>{{TOTAL_OPERACION}}</dMonTiPag>
+          <cMoneTiPag>PYG</cMoneTiPag>
+          <dDMoneTiPag>Guarani</dDMoneTiPag>
+        </gPaConEIni>
+      </gCamCond>
+      <gCamItem>
+        <dCodInt>{{ITEM_CODIGO}}</dCodInt>
+        <dDesProSer>{{ITEM_DESCRIPCION}}</dDesProSer>
+        <cUniMed>77</cUniMed>
+        <dDesUniMed>UNI</dDesUniMed>
+        <dCantProSer>{{ITEM_CANTIDAD}}</dCantProSer>
+        <gValorItem>
+          <dPUniProSer>{{ITEM_PRECIO_UNITARIO}}</dPUniProSer>
+          <dTotBruOpeItem>{{ITEM_SUBTOTAL}}</dTotBruOpeItem>
+          <gValorRestaItem>
+            <dDescItem>{{ITEM_DESCUENTO}}</dDescItem>
+            <dTotOpeItem>{{ITEM_TOTAL_OPERACION}}</dTotOpeItem>
+          </gValorRestaItem>
+        </gValorItem>
+        <gCamIVA>
+          <iAfecIVA>{{ITEM_AFEC_IVA}}</iAfecIVA>
+          <dDesAfecIVA>{{ITEM_DESC_AFEC_IVA}}</dDesAfecIVA>
+          <dPropIVA>{{ITEM_PROP_IVA}}</dPropIVA>
+          <dTasaIVA>{{ITEM_TASA_IVA}}</dTasaIVA>
+          <dBasGravIVA>{{ITEM_BASE_GRAVADA}}</dBasGravIVA>
+          <dLiqIVAItem>{{ITEM_LIQ_IVA}}</dLiqIVAItem>
+        </gCamIVA>
+      </gCamItem>
+    </gDtipDE>
+    <gTotSub>
+      <dSubExe>{{SUB_EXENTA}}</dSubExe>
+      <dSubExo>0</dSubExo>
+      <dSub5>{{SUB_IVA_5}}</dSub5>
+      <dSub10>{{SUB_IVA_10}}</dSub10>
+      <dTotOpe>{{TOTAL_OPERACION}}</dTotOpe>
+      <dTotDesc>0</dTotDesc>
+      <dTotDescGlotem>0</dTotDescGlotem>
+      <dTotAntItem>0</dTotAntItem>
+      <dTotAnt>0</dTotAnt>
+      <dPorcDescTotal>0</dPorcDescTotal>
+      <dDescTotal>0</dDescTotal>
+      <dAnticipo>0</dAnticipo>
+      <dRedon>0</dRedon>
+      <dTotGralOpe>{{TOTAL_OPERACION}}</dTotGralOpe>
+      <dIVA5>{{LIQ_IVA_5}}</dIVA5>
+      <dIVA10>{{LIQ_IVA_10}}</dIVA10>
+      <dTotIVA>{{TOTAL_IVA}}</dTotIVA>
+      <dBaseGrav5>{{BASE_GRAV_5}}</dBaseGrav5>
+      <dBaseGrav10>{{BASE_GRAV_10}}</dBaseGrav10>
+      <dTBasGraIVA>{{TOTAL_BASE_GRAVADA}}</dTBasGraIVA>
+    </gTotSub>
+  </DE>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+      <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <Reference URI="#{{CDC_44}}">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+          <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>{{DIGEST_VALUE_BASE64}}</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>{{SIGNATURE_VALUE_BASE64}}</SignatureValue>
+    <KeyInfo>
+      <X509Data>
+        <X509Certificate>{{X509_CERTIFICATE_BASE64}}</X509Certificate>
+      </X509Data>
+    </KeyInfo>
+  </Signature>
+  <gCamFuFD>
+    <dCarQR>{{URL_QR_TRIBUTARIO}}</dCarQR>
+  </gCamFuFD>
+</rDE>
